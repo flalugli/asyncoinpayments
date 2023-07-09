@@ -444,7 +444,21 @@ class AsyncCoinPayments:
         return accepted_list
 
     async def is_accepted(self, currency:str, fiat_included: bool = True) -> bool:
-        
+        """
+        Check if a currency is accepted by the merchant 
+
+        Parameters
+        ----------
+        currency : str
+            The currency that needs to be checked
+        fiat_included : bool, optional
+            If the command should accept fiat currencies as an input, by default True
+
+        Returns
+        -------
+        bool
+            True if the currency passed is accepted by the merchant else False
+        """
         currency = currency.upper()
         api_response = await self.rates()
         accepted_currencies = self.json_to_result(api_response)
@@ -458,8 +472,16 @@ class AsyncCoinPayments:
         except KeyError:
             return False
 
-    async def get_balance_accepted(self):
-        """get the balance as a floating of your accepted currencies"""
+    async def get_balance_accepted(self) -> dict:
+        """
+        Get the balance of the accepted currencies by the merchant
+
+        Returns
+        -------
+        dict
+            a dictionary cointaining the currency as the key and its balance as the value
+
+        """
 
         accepted = await self.get_accepted_list()
         balances = self.json_to_result(await self.balances())
@@ -474,11 +496,28 @@ class AsyncCoinPayments:
         
         return accepted_balances
     
-    async def conversion_fiat(self, coin1:str, base_currency:str, from_data:dict = None):
+    async def conversion_fiat(self, coin1:str, base_currency:str, from_data:dict = None) -> float:
         """
-        Returns the conversion rate of any available currency on the site. This is recomended to use only if needed.
-        ### Note
-        The conversion rate might be a bit imprecise depending on how recently the rates endpoint has been updated
+        Get the conversion rate in a fiat currency of any currency accepted by CoinPayments
+
+        Parameters
+        ----------
+        coin1 : str
+            The coin that we want the conversion rate of 
+        base_currency : str
+            The currency, should be fiat, against which we want to compare coin1
+        from_data : dict, optional
+            A previous cached call of the rates endpoint if not passed an api call to said endpoint will be made, by default None
+
+        Returns
+        -------
+        float
+            The exchange rate 
+
+        Raises
+        ------
+        CoinPaymentsInputError
+            If the currencies passed do not exist or are not accepted by CoinPayments
         """
         if from_data:
             rates = from_data
@@ -497,8 +536,24 @@ class AsyncCoinPayments:
         rate = coin1_btc/base_currency_btc
         return rate
     
-    async def balances_fiat(self, base_currency:str = 'USD', only_accepted:bool = False, all_coins:bool = False):
-        "Returns the amount of cryptocurrency in your wallet against the base coin"
+    async def balances_fiat(self, base_currency:str = 'USD', only_accepted:bool = False, all_coins:bool = False) -> dict:
+        """
+        _summary_
+
+        Parameters
+        ----------
+        base_currency : str, optional
+            The currency in which the merchant balance will be returned, by default 'USD'
+        only_accepted : bool, optional
+            If set to True the function will return only the balances of the merchant's accepted coins, by default False
+        all_coins : bool, optional
+            If set to True the function will return all balances, even if empty, by default False
+
+        Returns
+        -------
+        dict
+            A dictionary containing the merchant's coin balances converted in the base currency
+        """
 
         new_balances = {}
 
