@@ -1,0 +1,9 @@
+.env
+
+asyncoinpayments.egg-info/
+
+build/
+
+dist/
+
+setup.py
