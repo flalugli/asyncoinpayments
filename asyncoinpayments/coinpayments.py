@@ -488,11 +488,9 @@ class AsyncCoinPayments:
         accepted_balances = {}
 
         for coin in accepted:
-            try:
-                balance = balances[coin]['balancef']    
-                accepted_balances |= {coin: balance}
-            except KeyError:
-                raise CoinPaymentsInputError("User input is incorrect")
+            
+            balance = balances[coin]['balancef']    
+            accepted_balances |= {coin: balance}
         
         return accepted_balances
     
