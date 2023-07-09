@@ -538,7 +538,7 @@ class AsyncCoinPayments:
     
     async def balances_fiat(self, base_currency:str = 'USD', only_accepted:bool = False, all_coins:bool = False) -> dict:
         """
-        _summary_
+        Get the merchant's balances converted in a set base currency
 
         Parameters
         ----------
