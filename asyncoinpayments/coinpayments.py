@@ -3,6 +3,7 @@ import urllib.request, urllib.parse, urllib.error
 import urllib.request, urllib.error, urllib.parse
 import hmac
 import hashlib
+from typing import Union
 from tenacity import retry, stop_after_attempt
 from .errors import CoinPayementsError,CoinPaymentsInputError,FormatError 
 from .utils import ResponseFormat
@@ -26,12 +27,8 @@ class AsyncCoinPayments:
 
 
     def create_hmac(self, **params):
-        """ ## Generate an HMAC from the url arguments
-            
-            ### Note  
-
-            hmac on both sides depends from the order of the parameters, any
-            change in the order and the hmacs wouldn't match hence the api request would be invalid
+        """
+        create hmac for api requests
         """
         encoded = urllib.parse.urlencode(params).encode('utf-8')
         #print(encoded) #to fix tx and multiple calls at once
@@ -41,6 +38,9 @@ class AsyncCoinPayments:
 
     @retry(stop=stop_after_attempt(3)) #TODO ADD WAIT TIME MAYBE? -> hard with async and tenacity
     async def request(self, method, **params):
+        """
+        request handler
+        """
         
         encoded, h = self.create_hmac(**params)
         headers = {'hmac' : h}
@@ -72,12 +72,24 @@ class AsyncCoinPayments:
         """Performs a post request"""
         return await self.request(method='post',**params)
 
-    def json_to_result(self, json_response:dict):
+    def json_to_result(self, json_response:dict) -> dict:
         """
-        Pass a json response from the api
+        given an api response dictionary in json format returns the response and raises errors if any 
 
-        ## Raises 
+        Parameters
+        ----------
+        json_response : dict
+            the json response fetched from the api
+
+        Returns
+        -------
+        dict
+            The result of the api call if succesful
+
+        Raises
+        ------
         CoinPayementsError
+            any error returned by the api
         """
 
         error=json_response['error']
@@ -86,7 +98,10 @@ class AsyncCoinPayments:
         else:
             raise CoinPayementsError(error)
 
-    async def api_call(self, cmd:str, **params):
+    async def api_call(self, cmd:str, **params) -> Union[dict, str]:
+        """
+        perform an api call given a cmd and its parameters
+        """
 
         base_params={
             'cmd' : cmd,
@@ -99,19 +114,29 @@ class AsyncCoinPayments:
 
 
     ### INFORMATION COMMANDS
-    async def get_basic_info(self):
-        """# Get basic informations"""
+    async def get_basic_info(self) -> Union[dict, str]:
+        """
+        retrieves basic user info from the CoinPayments api
+
+        Returns
+        -------
+        Union[dict, str]
+            api response containing the basic user info
+        """
 
         cmd = 'get_basic_info'
 
         return await self.api_call(cmd)
     
     async def rates(self, short:bool = True, specify_accepted:bool = True, only_accepted:bool = True):
-        """specify_accepted	: 
-        - The response will include if you have the coin enabled for acceptance on your Coin Acceptance Settings page.
+        """
+        retrieves rates informations from the CoinPayments api
 
-        only_accepted:
-        - The response will include all fiat coins but only cryptocurrencies enabled for acceptance on your Coin Acceptance Settings page."""
+        Returns
+        -------
+        Union[dict, str]
+            api response containing the currency rates informations
+        """
 
         cmd = 'rates'
 
@@ -131,10 +156,13 @@ class AsyncCoinPayments:
     
     ### RECEIVING PAYMENTS
     async def create_transaction(self, amount:float, buyer_email:str, receive_currency:str, base_currency:str = 'USD', ipn_url:str = None, **params):
-        """# Create a CoinPayment transaction
-        
-        receive_currency : the currency you will receive   
-        if you want to handle refund yourself set buyer_email to your own email
+        """
+        creates a cryptocurrency transaction to receive client funds
+
+        Returns
+        -------
+        Union[dict, str]
+            api response containing the transaction informations
         """
 
         cmd='create_transaction'
@@ -152,7 +180,14 @@ class AsyncCoinPayments:
         return await self.api_call(cmd, **necessary_params, **params)
     
     async def get_callback_address(self, currency, ipn_url:str = None, **params):
-        """add docu"""
+        """
+        retrieves basic user info from the CoinPayments api
+
+        Returns
+        -------
+        Union[dict, str]
+            api response containing the callback address
+        """
 
         necessary_params = {
             'currency' : currency,
@@ -168,7 +203,14 @@ class AsyncCoinPayments:
         # Payment IDs should be separated with a | (pipe symbol.) 
     
     async def get_tx_info(self, txid:str, full:bool = False):
-        """add docu"""
+        """
+        retrieves transaction informations from the CoinPayments api
+
+        Returns
+        -------
+        Union[dict, str]
+            api response containing the transaction informations
+        """
 
         cmd = 'get_tx_info'
 
@@ -181,8 +223,12 @@ class AsyncCoinPayments:
     
     async def get_tx_ids(self, limit:int=25, newer_than:int = 0, **params):
         """
-        max limit is 100, if greater than that it will be set to 100
-        newer_than return payments started at the given Unix timestamp or later
+        retrieves the ids of from your transaction history using the CoinPayments api
+
+        Returns
+        -------
+        Union[dict, str]
+            api response containing the callback address
         """
 
         if limit > 100: limit = 100
