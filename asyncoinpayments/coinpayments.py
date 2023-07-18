@@ -6,7 +6,7 @@ import hashlib
 from typing import Union
 from tenacity import retry, stop_after_attempt
 from .errors import CoinPayementsError,CoinPaymentsInputError,FormatError 
-from .utils import ResponseFormat
+from .utils import ResponseFormat, JsonResponse, ApiResponseJson
 
 
 class AsyncCoinPayments:
@@ -72,33 +72,8 @@ class AsyncCoinPayments:
         """Performs a post request"""
         return await self.request(method='post',**params)
 
-    def json_to_result(self, json_response:dict) -> dict:
-        """
-        given an api response dictionary in json format returns the response and raises errors if any 
 
-        Parameters
-        ----------
-        json_response : dict
-            the json response fetched from the api
-
-        Returns
-        -------
-        dict
-            The result of the api call if succesful
-
-        Raises
-        ------
-        CoinPayementsError
-            any error returned by the api
-        """
-
-        error=json_response['error']
-        if error == 'ok':
-            return json_response['result']
-        else:
-            raise CoinPayementsError(error)
-
-    async def api_call(self, cmd:str, **params) -> Union[dict, str]:
+    async def api_call(self, cmd:str, **params) -> Union[JsonResponse, str]:
         """
         perform an api call given a cmd and its parameters
         """
@@ -109,18 +84,22 @@ class AsyncCoinPayments:
             'version': self._version,
             'format': self._format
             }
+        if self._format == "json":
+            data : ApiResponseJson = await self.post(**base_params,**params)
+            response : JsonResponse = JsonResponse(data=data)
+        else:
+            response: str = await self.post(**base_params,**params)
         
-        return await self.post(**base_params,**params)
-
+        return response
 
     ### INFORMATION COMMANDS
-    async def get_basic_info(self) -> Union[dict, str]:
+    async def get_basic_info(self) -> Union[JsonResponse, str]:
         """
         retrieves basic user info from the CoinPayments api
 
         Returns
         -------
-        Union[dict, str]
+        Union[JsonResponse, str]
             api response containing the basic user info
         """
 
@@ -128,13 +107,13 @@ class AsyncCoinPayments:
 
         return await self.api_call(cmd)
     
-    async def rates(self, short:bool = True, specify_accepted:bool = True, only_accepted:bool = True):
+    async def rates(self, short:bool = True, specify_accepted:bool = True, only_accepted:bool = True) -> Union[JsonResponse, str]:
         """
         retrieves rates informations from the CoinPayments api
 
         Returns
         -------
-        Union[dict, str]
+        Union[JsonResponse, str]
             api response containing the currency rates informations
         """
 
@@ -155,13 +134,13 @@ class AsyncCoinPayments:
         return await self.api_call(cmd, **params)
     
     ### RECEIVING PAYMENTS
-    async def create_transaction(self, amount:float, buyer_email:str, receive_currency:str, base_currency:str = 'USD', ipn_url:str = None, **params):
+    async def create_transaction(self, amount:float, buyer_email:str, receive_currency:str, base_currency:str = 'USD', ipn_url:str = None, **params) -> Union[JsonResponse, str]:
         """
         creates a cryptocurrency transaction to receive client funds
 
         Returns
         -------
-        Union[dict, str]
+        Union[JsonResponse, str]
             api response containing the transaction informations
         """
 
@@ -179,13 +158,13 @@ class AsyncCoinPayments:
 
         return await self.api_call(cmd, **necessary_params, **params)
     
-    async def get_callback_address(self, currency, ipn_url:str = None, **params):
+    async def get_callback_address(self, currency, ipn_url:str = None, **params) -> Union[JsonResponse, str]:
         """
         retrieves basic user info from the CoinPayments api
 
         Returns
         -------
-        Union[dict, str]
+        Union[JsonResponse, str]
             api response containing the callback address
         """
 
@@ -202,13 +181,13 @@ class AsyncCoinPayments:
         # TODO FIX THIS 	Lets you query up to 25 payment ID(s) (API key must belong to the seller.) 
         # Payment IDs should be separated with a | (pipe symbol.) 
     
-    async def get_tx_info(self, txid:str, full:bool = False):
+    async def get_tx_info(self, txid:str, full:bool = False) -> Union[JsonResponse, str]:
         """
         retrieves transaction informations from the CoinPayments api
 
         Returns
         -------
-        Union[dict, str]
+        Union[JsonResponse, str]
             api response containing the transaction informations
         """
 
@@ -221,13 +200,13 @@ class AsyncCoinPayments:
 
         return await self.api_call(cmd, **params)
     
-    async def get_tx_ids(self, limit:int=25, newer_than:int = 0, **params):
+    async def get_tx_ids(self, limit:int=25, newer_than:int = 0, **params) -> Union[JsonResponse, str]:
         """
         retrieves the ids of from your transaction history using the CoinPayments api
 
         Returns
         -------
-        Union[dict, str]
+        Union[JsonResponse, str]
             api response containing the callback address
         """
 
@@ -244,7 +223,7 @@ class AsyncCoinPayments:
     
     ## WALLET
 
-    async def balances(self, all_coins:bool = False):
+    async def balances(self, all_coins:bool = False) -> Union[JsonResponse, str]:
         """
         # Retrieve the balances of your CoinPayments account
 
