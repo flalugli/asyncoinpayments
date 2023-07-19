@@ -359,7 +359,7 @@ class AsyncCoinPayments:
         necessary_params = {
             'amount' : amount,
             'from' : from_currency,
-            'to' : to_address,
+            'to' : to_currency,
             'address' : to_address,
         }
 
