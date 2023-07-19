@@ -273,18 +273,33 @@ class AsyncCoinPayments:
 
         return await self.api_call(cmd, **necessary_params, **params)
 
-    async def create_withdrawal(self, amount:float, receive_currency:str, base_currency:str = None, address:str = None, ipn_url: str = None, auto_confirm:bool = False, **params):
+    async def create_withdrawal(self, amount:float, receive_currency:str, base_currency:str = None, address:str = None, ipn_url: str = None, auto_confirm:bool = False, **params) -> Union[JsonResponse, str]:
         """
-        # Create a withdrawal from your funds
-    
-        if you do not pass the address you need to pass a paytag or an Unstoppable Domain
-        to send your funds to
+        create a withdrawal and send or transfer your funds to others
 
-        receive_currency is the currency you will receive, while if you set a base currency 
-        'amount' of 'base_currency' will be sent in 'currency' 
+        Parameters
+        ----------
+        amount : float
+            amount of base_currency to send
+        receive_currency : str
+            the currency the merchant will receive
+        base_currency : str, optional
+            the currency that determines the amount to send worth of receive_currency, by default None
+        address : str, optional
+            the receive_currency address, by default None
+        ipn_url : str, optional
+            the ipn url where the notifications will be sent, by default None
+        auto_confirm : bool, optional
+            if set to True 2fa won't be required, by default False
 
-        Example: `to send 18$ worth of btc, 'btc' is the receive_currency and 'usd' is the base_currency`
+        Returns
+        -------
+        Union[JsonResponse, str]
+            api response containing containing the withdrawal info
 
+        Example
+        -------
+            `to send 18$ worth of btc, 'btc' is the receive_currency and 'usd' is the base_currency`
         """
 
         cmd='create_withdrawal'
@@ -311,7 +326,6 @@ class AsyncCoinPayments:
     
     async def cancel_withdrawal(self, withdrawal_id:int):
         """
-        # Cancel a withdrawal
         Cancel a withdrawal given its id
         """
 
@@ -319,10 +333,25 @@ class AsyncCoinPayments:
 
         return await self.api_call(cmd, id=withdrawal_id)
     
-    async def convert(self, amount:float, from_currency:str, to_currency:str, to_address:str = None, **params):
+    async def convert(self, amount:float, from_currency:str, to_currency:str, to_address:str = None, **params) -> Union[JsonResponse, str]:
         """
-        # Convert coins
-        Convert your coins and send them to a new address or your own if to_address is set to None
+        convert a currency to another and if passed, send it to another address
+
+        Parameters
+        ----------
+        amount : float
+            the amount of from_currency to convert 
+        from_currency : str
+            the currency to conver
+        to_currency : str
+            the currency to convert to
+        to_address : str, optional
+            the address that will receive the amount of to_currency, by default None
+
+        Returns
+        -------
+        Union[JsonResponse, str]
+            api response containing the convertion informations
         """
 
         cmd = 'convert'
