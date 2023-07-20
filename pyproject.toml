@@ -20,4 +20,3 @@ dependencies = [
     "aiohttp",
     "tenacity",
 ]
-dynamic = ["version"]
