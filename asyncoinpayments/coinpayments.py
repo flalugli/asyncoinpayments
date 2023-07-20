@@ -264,7 +264,7 @@ class AsyncCoinPayments:
         
         user_balance = await self.balances(True)
         #TODO ADD TRY BLOCK
-        result = self.json_to_result(user_balance)
+        result = user_balance.result
 
         try:
             coin_balance = {'error' : 'ok', 'result' : result[coin.upper()]}
