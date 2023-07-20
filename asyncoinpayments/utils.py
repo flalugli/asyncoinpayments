@@ -23,5 +23,5 @@ class JsonResponse:
         """
         If an error accours it will be raised as CoinPaymentsError
         """
-        if self._error != "ok":
+        if self.error != "ok":
             raise CoinPayementsError(self._error)
