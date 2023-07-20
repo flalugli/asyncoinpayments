@@ -30,6 +30,7 @@ class AsyncCoinPayments:
         """
         create hmac for api requests
         """
+        
         encoded = urllib.parse.urlencode(params).encode('utf-8')
         #print(encoded) #to fix tx and multiple calls at once
         h=hmac.new(bytearray(self._private_key, 'utf-8'), encoded, hashlib.sha512).hexdigest()
@@ -66,10 +67,12 @@ class AsyncCoinPayments:
 
     async def get(self, **params):
         """Performs a get request"""
+
         return await self.request(method='get',**params)
 
     async def post(self, **params):
         """Performs a post request"""
+
         return await self.request(method='post',**params)
 
 
@@ -274,13 +277,35 @@ class AsyncCoinPayments:
             return coin_balance
         
     async def get_deposit_address(self, currency:str):
-        """currency : the currency the buyer will be sending."""
+        """
+        get the merchant deposit address for a currency  
+        currency :: str : the currency the buyer will be sending.
+        """
 
         cmd = 'get_deposit_address'
 
         return await self.api_call(cmd, currency=currency)
     
-    async def create_transfer(self, amount:float, currency:str , merchant_id:int, auto_confirm:bool = False, **params):
+    async def create_transfer(self, amount:float, currency:str , merchant_id:int, auto_confirm:bool = False, **params) -> Union[JsonResponse, str]:
+        """
+        create a withdrawal to another CoinPayments user
+
+        Parameters
+        ----------
+        amount : float
+            the amount to transfer
+        currency : str
+            the currency to transfer
+        merchant_id : int
+            the merchant id to send the funds to
+        auto_confirm : bool, optional
+            if set to True no 2fa will be required to confirm the command, by default False
+
+        Returns
+        -------
+        Union[JsonResponse, str]
+            api response containing the transfer informations
+        """
 
         cmd = 'create_transfer'
 
