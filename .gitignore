@@ -1,6 +1,6 @@
 .env
 
-asyncoinpayments.egg-info/
+*.egg-info/
 
 build/
 
