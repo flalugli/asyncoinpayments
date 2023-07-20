@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asyncoinpayments"
+version = "0.0.3a"
+description = "Python Asynchronous Wrapper of the CoinPayments API"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ['python', 'crypto', 'cryptocurrency', 'payment gateway', 'async', 'aiohttp']
+license = {text = "Apache License 2.0"}
+classifiers=[
+        "Development Status :: 1 - Planning",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+    ]
+dependencies = [
+    "aiohttp",
+    "tenacity",
+]
+dynamic = ["version"]
