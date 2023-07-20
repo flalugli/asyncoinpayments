@@ -237,7 +237,27 @@ class AsyncCoinPayments:
         return await self.api_call(cmd, **params)
     
     #EXTRA
-    async def coin_balance(self, coin:str):
+    async def coin_balance(self, coin:str) -> Union[JsonResponse, str]:
+        """
+        get the current balance of a certain currency, this only works with json format
+
+        Parameters
+        ----------
+        coin : str
+            the currency of which the balance will be returned
+
+        Returns
+        -------
+        Union[JsonResponse, str]
+            api response containing the coin balance informations
+
+        Raises
+        ------
+        FormatError
+            the format passed is not json
+        CoinPaymentsInputError
+            the user input is incorrect, the coin passed does not exists
+        """
 
         if self._format != ResponseFormat.JSON:
             raise FormatError
