@@ -1,10 +1,10 @@
-.env
+*.env
 
 *.egg-info/
 
-build/
+*build/
 
-dist/
+*dist/
 
 run.py
 
