@@ -9,7 +9,7 @@ from .errors import CoinPayementsError,CoinPaymentsInputError,FormatError
 from .utils import ResponseFormat, JsonResponse, ApiResponseJson
 
 
-class AsyncCoinPayments:
+class AsynCoinPayments:
     
     REQUEST_TRIES=3
 
