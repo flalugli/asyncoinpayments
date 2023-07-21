@@ -1,2 +1,2 @@
-from .coinpayments import AsyncCoinPayments
+from .coinpayments import AsynCoinPayments
 from .utils import ApiResponseJson, JsonResponse
