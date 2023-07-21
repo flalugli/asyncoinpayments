@@ -17,11 +17,11 @@ class JsonResponse:
         self.result = data['result']
 
     def __str__(self):
-        return f"(error: {self._error}, result: {self._result})"
+        return f"(error: {self.error}, result: {self.error})"
 
     def raise_for_errors(self) -> None:
         """
         If an error accours it will be raised as CoinPaymentsError
         """
         if self.error != "ok":
-            raise CoinPayementsError(self._error)
+            raise CoinPayementsError(self.error)
