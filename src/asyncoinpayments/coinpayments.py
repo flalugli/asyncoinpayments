@@ -13,11 +13,11 @@ class AsynCoinPayments:
     
     REQUEST_TRIES=3
 
-    def __init__(self,_private_key:str,_public_key:str,_version:str='1', _format:ResponseFormat = ResponseFormat.JSON, _proxy:str = None, _proxy_auth:str = None) -> None:
+    def __init__(self,private_key:str,public_key:str,version:str='1', _format:ResponseFormat = ResponseFormat.JSON, _proxy:str = None, _proxy_auth:str = None) -> None:
         
-        self._private_key = _private_key
-        self._public_key = _public_key
-        self._version = _version
+        self._private_key = private_key
+        self._public_key = public_key
+        self._version = version
 
         self.proxy=_proxy
         self._proxy_auth=_proxy_auth
