@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "asyncoinpayments"
-version = "0.0.6a"
+version = "0.0.8a"
 description = "Python Asynchronous Wrapper of the CoinPayments API"
 authors = [
   { name="flalugli", email="flalugli.dev@gmail.com" },

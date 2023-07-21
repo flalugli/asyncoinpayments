@@ -318,7 +318,7 @@ class AsynCoinPayments:
 
         return await self.api_call(cmd, **necessary_params, **params)
 
-    async def create_withdrawal(self, amount:float, receive_currency:str, base_currency:str = None, address:str = None, ipn_url: str = None, auto_confirm:bool = False, **params) -> Union[JsonResponse, str]:
+    async def create_withdrawal(self, amount:float, receive_currency:str, base_currency:str = "USD", address:str = None, ipn_url: str = None, auto_confirm:bool = False, **params) -> Union[JsonResponse, str]:
         """
         create a withdrawal and send or transfer your funds to others
 
@@ -533,7 +533,7 @@ class AsynCoinPayments:
     async def get_accepted_list(self, fiat_included:bool = True) -> list:
 
         api_response = await self.rates()
-        accepted_currencies = self.json_to_result(api_response)
+        accepted_currencies = api_response.result
 
         if not fiat_included:
             accepted_list = [c for c in accepted_currencies if accepted_currencies[c]['is_fiat'] == 0]
@@ -560,7 +560,7 @@ class AsynCoinPayments:
         """
         currency = currency.upper()
         api_response = await self.rates()
-        accepted_currencies = self.json_to_result(api_response)
+        accepted_currencies = api_response.result
 
         if not fiat_included:
             accepted_currencies = {c : 'accepted' for c in accepted_currencies if accepted_currencies[c]['is_fiat'] == 0}
@@ -583,7 +583,8 @@ class AsynCoinPayments:
         """
 
         accepted = await self.get_accepted_list()
-        balances = self.json_to_result(await self.balances())
+        api_response = await self.balances()
+        balances = api_response.result
         accepted_balances = {}
 
         for coin in accepted:
@@ -619,7 +620,8 @@ class AsynCoinPayments:
         if from_data:
             rates = from_data
         else:
-            rates = self.json_to_result(await self.rates())
+            api_response = await self.rates()
+            rates = api_response.result
         
         coin1 = coin1.upper()
         base_currency = base_currency.upper()
@@ -653,10 +655,11 @@ class AsynCoinPayments:
         """
 
         new_balances = {}
-
-        balances = self.json_to_result(await self.balances(all_coins = all_coins))
+        balances_api_response = await self.balances(all_coins = all_coins)
+        balances = balances_api_response.result
         #we call this function once and cache the result
-        rates = self.json_to_result(await self.rates(only_accepted = only_accepted))
+        rates_api_response = await self.rates(only_accepted = only_accepted)
+        rates = rates_api_response.result
 
         for coin in rates:
             
