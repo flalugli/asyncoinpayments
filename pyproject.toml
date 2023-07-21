@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "asyncoinpayments"
-version = "0.0.3a"
+version = "0.0.4a"
 description = "Python Asynchronous Wrapper of the CoinPayments API"
 authors = [
   { name="flalugli", email="flalugli.dev@gmail.com" },
@@ -25,7 +25,7 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/flalugli/asyncoinpayments"
-"Bug Tracker" = "https://github.com/flalugli/asyncoinpayments/issues
+Homepage = "https://github.com/flalugli/asyncoinpayments"
+
 [tool.setuptools.packages.find]
 where = ["src"]
