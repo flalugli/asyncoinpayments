@@ -8,4 +8,4 @@ dist/
 
 run.py
 
-/asyncoinpayments/__pycache__/
+*__pycache__/

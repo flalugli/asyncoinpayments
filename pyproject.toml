@@ -6,6 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "asyncoinpayments"
 version = "0.0.3a"
 description = "Python Asynchronous Wrapper of the CoinPayments API"
+authors = [
+  { name="flalugli", email="flalugli.dev@gmail.com" },
+]
 readme = "README.md"
 requires-python = ">=3.8"
 keywords = ['python', 'crypto', 'cryptocurrency', 'payment gateway', 'async', 'aiohttp']
@@ -20,5 +23,9 @@ dependencies = [
     "aiohttp",
     "tenacity",
 ]
+
+[project.urls]
+"Homepage" = "https://github.com/flalugli/asyncoinpayments"
+"Bug Tracker" = "https://github.com/flalugli/asyncoinpayments/issues
 [tool.setuptools.packages.find]
-where = ["asyncoinpayments"]
+where = ["src"]
