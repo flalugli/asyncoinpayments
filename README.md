@@ -9,6 +9,9 @@ An async/await compatible python wrapper for the CoinPayments API
 ```
 # run this in the command propt or terminal
 pip install asyncoinpayments  
+
+# or run this to get the latest dev version
+pip install git+https://github.com/flalugli/asyncoinpayments.git 
 ```
 
 ## Features  
