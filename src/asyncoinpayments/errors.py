@@ -1,8 +1,11 @@
-class CoinPayementsError(Exception):
-    pass
+class CoinPayementsError(BaseException):
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)
 
 class CoinPaymentsInputError(CoinPayementsError): 
-    pass
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)
 
 class FormatError(CoinPayementsError):
-    pass
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)
