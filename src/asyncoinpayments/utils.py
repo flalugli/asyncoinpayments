@@ -1,20 +1,22 @@
 from typing import TypedDict
-from .errors import CoinPayementsError 
+
+from .errors import CoinPayementsError
+
 
 class ResponseFormat:
-    JSON="json"
-    XML='xml'
+    JSON = "json"
+    XML = "xml"
+
 
 class ApiResponseJson(TypedDict):
-    error : str
-    result : dict
+    error: str
+    result: dict
+
 
 class JsonResponse:
-    
-    def __init__(self, data : ApiResponseJson) -> None:
-
-        self.error = data['error']
-        self.result = data['result']
+    def __init__(self, data: ApiResponseJson) -> None:
+        self.error = data["error"]
+        self.result = data["result"]
 
     def __str__(self):
         return f"(error: {self.error}, result: {self.error})"
