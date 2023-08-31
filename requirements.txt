@@ -6,3 +6,4 @@ multidict==6.0.4
 tenacity==8.2.2
 ghp-import
 sphinx
+sphinx_rtd_theme
