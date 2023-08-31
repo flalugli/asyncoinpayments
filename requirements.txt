@@ -5,3 +5,4 @@ attrs==23.1.0
 multidict==6.0.4
 tenacity==8.2.2
 ghp-import
+sphinx
