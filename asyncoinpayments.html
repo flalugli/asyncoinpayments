@@ -1,0 +1,690 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>asyncoinpayments package &mdash; AsynCoinPayments 0.0.8a0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=28f502ad"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AsynCoinPayments
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">asyncoinpayments package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-asyncoinpayments.coinpayments">asyncoinpayments.coinpayments module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.REQUEST_TRIES"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.REQUEST_TRIES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.api_call"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.api_call()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.balances"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.balances()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.balances_fiat"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.balances_fiat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.buy_pbn_tags"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.buy_pbn_tags()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.cancel_withdrawal"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.cancel_withdrawal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.claim_pbn_coupon"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.claim_pbn_coupon()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.claim_pbn_tag"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.claim_pbn_tag()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.coin_balance"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.coin_balance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.conversion_fiat"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.conversion_fiat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.convert"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.convert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.convert_limits"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.convert_limits()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.create_hmac"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.create_hmac()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.create_mass_withdrawal"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.create_mass_withdrawal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.create_transaction"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.create_transaction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.create_transfer"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.create_transfer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.create_withdrawal"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.create_withdrawal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.delete_pbn_tag"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.delete_pbn_tag()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_accepted_list"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_accepted_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_balance_accepted"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_balance_accepted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_basic_info"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_basic_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_callback_address"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_callback_address()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_conversion_info"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_conversion_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_deposit_address"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_deposit_address()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_pbn_info"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_pbn_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_pbn_list"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_pbn_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_tx_ids"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_tx_ids()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_tx_info"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_tx_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_tx_info_multi"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_tx_info_multi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_withdrawal_history"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_withdrawal_history()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_withdrawal_info"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.get_withdrawal_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.is_accepted"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.is_accepted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.post"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.rates"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.rates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.renew_pbn_tag"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.renew_pbn_tag()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.request"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.coinpayments.AsynCoinPayments.update_pbn_tag"><code class="docutils literal notranslate"><span class="pre">AsynCoinPayments.update_pbn_tag()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-asyncoinpayments.errors">asyncoinpayments.errors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#asyncoinpayments.errors.CoinPayementsError"><code class="docutils literal notranslate"><span class="pre">CoinPayementsError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asyncoinpayments.errors.CoinPaymentsInputError"><code class="docutils literal notranslate"><span class="pre">CoinPaymentsInputError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asyncoinpayments.errors.FormatError"><code class="docutils literal notranslate"><span class="pre">FormatError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-asyncoinpayments.utils">asyncoinpayments.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#asyncoinpayments.utils.ApiResponseJson"><code class="docutils literal notranslate"><span class="pre">ApiResponseJson</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.utils.ApiResponseJson.error"><code class="docutils literal notranslate"><span class="pre">ApiResponseJson.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.utils.ApiResponseJson.result"><code class="docutils literal notranslate"><span class="pre">ApiResponseJson.result</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse"><code class="docutils literal notranslate"><span class="pre">JsonResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse.raise_for_errors"><code class="docutils literal notranslate"><span class="pre">JsonResponse.raise_for_errors()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asyncoinpayments.utils.ResponseFormat"><code class="docutils literal notranslate"><span class="pre">ResponseFormat</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.utils.ResponseFormat.JSON"><code class="docutils literal notranslate"><span class="pre">ResponseFormat.JSON</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncoinpayments.utils.ResponseFormat.XML"><code class="docutils literal notranslate"><span class="pre">ResponseFormat.XML</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-asyncoinpayments">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AsynCoinPayments</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active">asyncoinpayments package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/asyncoinpayments.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="asyncoinpayments-package">
+<h1>asyncoinpayments package<a class="headerlink" href="#asyncoinpayments-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-asyncoinpayments.coinpayments">
+<span id="asyncoinpayments-coinpayments-module"></span><h2>asyncoinpayments.coinpayments module<a class="headerlink" href="#module-asyncoinpayments.coinpayments" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncoinpayments.coinpayments.</span></span><span class="sig-name descname"><span class="pre">AsynCoinPayments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">private_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">public_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#asyncoinpayments.utils.ResponseFormat" title="asyncoinpayments.utils.ResponseFormat"><span class="pre">ResponseFormat</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'json'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_proxy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_proxy_auth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.REQUEST_TRIES">
+<span class="sig-name descname"><span class="pre">REQUEST_TRIES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.REQUEST_TRIES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.api_call">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.api_call" title="Link to this definition"></a></dt>
+<dd><p>perform an api call given a cmd and its parameters</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.balances">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">balances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_coins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.balances" title="Link to this definition"></a></dt>
+<dd><p># Retrieve the balances of your CoinPayments account</p>
+<p>if all_coins is set to True it will return all balances, even if they are equal to 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.balances_fiat">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">balances_fiat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'USD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_accepted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_coins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.balances_fiat" title="Link to this definition"></a></dt>
+<dd><p>Get the merchant’s balances converted in a set base currency</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>base_currency<span class="classifier">str, optional</span></dt><dd><p>The currency in which the merchant balance will be returned, by default ‘USD’</p>
+</dd>
+<dt>only_accepted<span class="classifier">bool, optional</span></dt><dd><p>If set to True the function will return only the balances of the merchant’s accepted coins, by default False</p>
+</dd>
+<dt>all_coins<span class="classifier">bool, optional</span></dt><dd><p>If set to True the function will return all balances, even if empty, by default False</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>dict</dt><dd><p>A dictionary containing the merchant’s coin balances converted in the base currency</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.buy_pbn_tags">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">buy_pbn_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.buy_pbn_tags" title="Link to this definition"></a></dt>
+<dd><p># Buy $PayByName Tag(s)
+Buy 1 or more pbn tags</p>
+<p>coin : the coin to buy the tags with
+num : the number of tags to buy, if not passed is set to 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.cancel_withdrawal">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cancel_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">withdrawal_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.cancel_withdrawal" title="Link to this definition"></a></dt>
+<dd><p>Cancel a withdrawal given its id</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.claim_pbn_coupon">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">claim_pbn_coupon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coupon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.claim_pbn_coupon" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.claim_pbn_tag">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">claim_pbn_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.claim_pbn_tag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.coin_balance">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coin_balance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.coin_balance" title="Link to this definition"></a></dt>
+<dd><p>get the current balance of a certain currency, this only works with json format</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>coin<span class="classifier">str</span></dt><dd><p>the currency of which the balance will be returned</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h3>Returns<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Union[JsonResponse, str]</dt><dd><p>api response containing the coin balance informations</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h3>Raises<a class="headerlink" href="#raises" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>FormatError</dt><dd><p>the format passed is not json</p>
+</dd>
+<dt>CoinPaymentsInputError</dt><dd><p>the user input is incorrect, the coin passed does not exists</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.conversion_fiat">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">conversion_fiat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coin1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.conversion_fiat" title="Link to this definition"></a></dt>
+<dd><p>Get the conversion rate in a fiat currency of any currency accepted by CoinPayments</p>
+<section id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>coin1<span class="classifier">str</span></dt><dd><p>The coin that we want the conversion rate of</p>
+</dd>
+<dt>base_currency<span class="classifier">str</span></dt><dd><p>The currency, should be fiat, against which we want to compare coin1</p>
+</dd>
+<dt>from_data<span class="classifier">dict, optional</span></dt><dd><p>A previous cached call of the rates endpoint if not passed an api call to said endpoint will be made, by default None</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h3>Returns<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>The exchange rate</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h3>Raises<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>CoinPaymentsInputError</dt><dd><p>If the currencies passed do not exist or are not accepted by CoinPayments</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.convert">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.convert" title="Link to this definition"></a></dt>
+<dd><p>convert a currency to another and if passed, send it to another address</p>
+<section id="id6">
+<h3>Parameters<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>amount<span class="classifier">float</span></dt><dd><p>the amount of from_currency to convert</p>
+</dd>
+<dt>from_currency<span class="classifier">str</span></dt><dd><p>the currency to conver</p>
+</dd>
+<dt>to_currency<span class="classifier">str</span></dt><dd><p>the currency to convert to</p>
+</dd>
+<dt>to_address<span class="classifier">str, optional</span></dt><dd><p>the address that will receive the amount of to_currency, by default None</p>
+</dd>
+</dl>
+</section>
+<section id="id7">
+<h3>Returns<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Union[JsonResponse, str]</dt><dd><p>api response containing the convertion informations</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.convert_limits">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_limits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.convert_limits" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.create_hmac">
+<span class="sig-name descname"><span class="pre">create_hmac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.create_hmac" title="Link to this definition"></a></dt>
+<dd><p>create hmac for api requests</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.create_mass_withdrawal">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_mass_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">withdrawals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.create_mass_withdrawal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.create_transaction">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buyer_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receive_currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'USD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipn_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.create_transaction" title="Link to this definition"></a></dt>
+<dd><p>creates a cryptocurrency transaction to receive client funds</p>
+<section id="id8">
+<h3>Returns<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Union[JsonResponse, str]</dt><dd><p>api response containing the transaction informations</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.create_transfer">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merchant_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_confirm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.create_transfer" title="Link to this definition"></a></dt>
+<dd><p>create a withdrawal to another CoinPayments user</p>
+<section id="id9">
+<h3>Parameters<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>amount<span class="classifier">float</span></dt><dd><p>the amount to transfer</p>
+</dd>
+<dt>currency<span class="classifier">str</span></dt><dd><p>the currency to transfer</p>
+</dd>
+<dt>merchant_id<span class="classifier">int</span></dt><dd><p>the merchant id to send the funds to</p>
+</dd>
+<dt>auto_confirm<span class="classifier">bool, optional</span></dt><dd><p>if set to True no 2fa will be required to confirm the command, by default False</p>
+</dd>
+</dl>
+</section>
+<section id="id10">
+<h3>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Union[JsonResponse, str]</dt><dd><p>api response containing the transfer informations</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.create_withdrawal">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receive_currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'USD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipn_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_confirm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.create_withdrawal" title="Link to this definition"></a></dt>
+<dd><p>create a withdrawal and send or transfer your funds to others</p>
+<section id="id11">
+<h3>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>amount<span class="classifier">float</span></dt><dd><p>amount of base_currency to send</p>
+</dd>
+<dt>receive_currency<span class="classifier">str</span></dt><dd><p>the currency the merchant will receive</p>
+</dd>
+<dt>base_currency<span class="classifier">str, optional</span></dt><dd><p>the currency that determines the amount to send worth of receive_currency, by default None</p>
+</dd>
+<dt>address<span class="classifier">str, optional</span></dt><dd><p>the receive_currency address, by default None</p>
+</dd>
+<dt>ipn_url<span class="classifier">str, optional</span></dt><dd><p>the ipn url where the notifications will be sent, by default None</p>
+</dd>
+<dt>auto_confirm<span class="classifier">bool, optional</span></dt><dd><p>if set to True 2fa won’t be required, by default False</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h3>Returns<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Union[JsonResponse, str]</dt><dd><p>api response containing containing the withdrawal info</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><cite>to send 18$ worth of btc, ‘btc’ is the receive_currency and ‘usd’ is the base_currency</cite></p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.delete_pbn_tag">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_pbn_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.delete_pbn_tag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get" title="Link to this definition"></a></dt>
+<dd><p>Performs a get request</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_accepted_list">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_accepted_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fiat_included</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_accepted_list" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_balance_accepted">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_balance_accepted</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_balance_accepted" title="Link to this definition"></a></dt>
+<dd><p>Get the balance of the accepted currencies by the merchant</p>
+<section id="id13">
+<h3>Returns<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>dict</dt><dd><p>a dictionary cointaining the currency as the key and its balance as the value</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_basic_info">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_basic_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_basic_info" title="Link to this definition"></a></dt>
+<dd><p>retrieves basic user info from the CoinPayments api</p>
+<section id="id14">
+<h3>Returns<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Union[JsonResponse, str]</dt><dd><p>api response containing the basic user info</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_callback_address">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_callback_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipn_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_callback_address" title="Link to this definition"></a></dt>
+<dd><p>retrieves basic user info from the CoinPayments api</p>
+<section id="id15">
+<h3>Returns<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Union[JsonResponse, str]</dt><dd><p>api response containing the callback address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_conversion_info">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_conversion_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conversion_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_conversion_info" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_deposit_address">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_deposit_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_deposit_address" title="Link to this definition"></a></dt>
+<dd><p>get the merchant deposit address for a currency
+currency :: str : the currency the buyer will be sending.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_pbn_info">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_pbn_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pbntag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_pbn_info" title="Link to this definition"></a></dt>
+<dd><p>pbntag : tag to get information for, such as $CoinPayments or $Alex. Can be with or without a $ at the beginning.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_pbn_list">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_pbn_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_pbn_list" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_tx_ids">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_tx_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newer_than</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_tx_ids" title="Link to this definition"></a></dt>
+<dd><p>retrieves the ids of from your transaction history using the CoinPayments api</p>
+<section id="id16">
+<h3>Returns<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Union[JsonResponse, str]</dt><dd><p>api response containing the callback address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_tx_info">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_tx_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_tx_info" title="Link to this definition"></a></dt>
+<dd><p>retrieves transaction informations from the CoinPayments api</p>
+<section id="id17">
+<h3>Returns<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Union[JsonResponse, str]</dt><dd><p>api response containing the transaction informations</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_tx_info_multi">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_tx_info_multi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_tx_info_multi" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_withdrawal_history">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_withdrawal_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newer_than</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_withdrawal_history" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.get_withdrawal_info">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_withdrawal_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">withdrawal_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.get_withdrawal_info" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.is_accepted">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_accepted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fiat_included</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.is_accepted" title="Link to this definition"></a></dt>
+<dd><p>Check if a currency is accepted by the merchant</p>
+<section id="id18">
+<h3>Parameters<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>currency<span class="classifier">str</span></dt><dd><p>The currency that needs to be checked</p>
+</dd>
+<dt>fiat_included<span class="classifier">bool, optional</span></dt><dd><p>If the command should accept fiat currencies as an input, by default True</p>
+</dd>
+</dl>
+</section>
+<section id="id19">
+<h3>Returns<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>bool</dt><dd><p>True if the currency passed is accepted by the merchant else False</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.post">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.post" title="Link to this definition"></a></dt>
+<dd><p>Performs a post request</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.rates">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">short</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specify_accepted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_accepted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncoinpayments.utils.JsonResponse" title="asyncoinpayments.utils.JsonResponse"><span class="pre">JsonResponse</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.rates" title="Link to this definition"></a></dt>
+<dd><p>retrieves rates informations from the CoinPayments api</p>
+<section id="id20">
+<h3>Returns<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Union[JsonResponse, str]</dt><dd><p>api response containing the currency rates informations</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.renew_pbn_tag">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">renew_pbn_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">years</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.renew_pbn_tag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.request">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.request" title="Link to this definition"></a></dt>
+<dd><p>request handler</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.coinpayments.AsynCoinPayments.update_pbn_tag">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_pbn_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.coinpayments.AsynCoinPayments.update_pbn_tag" title="Link to this definition"></a></dt>
+<dd><p># Update your pbn tag info
+Update a pbn tag given its id</p>
+<p>In the params you can pass
+- name : Name for the profile. If field is not supplied the current name will be unchanged.
+- email : email for the profile. If field is not supplied the current email will be unchanged.
+- url : website URL for the profile. If field is not supplied the current URL will be unchanged.
+- image : JPG or PNG image 250KB or smaller, the image data should be base64 encoded.
+Use an empty string to remove profile image. If field is not supplied the current image will be unchanged.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-asyncoinpayments.errors">
+<span id="asyncoinpayments-errors-module"></span><h2>asyncoinpayments.errors module<a class="headerlink" href="#module-asyncoinpayments.errors" title="Link to this heading"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="asyncoinpayments.errors.CoinPayementsError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncoinpayments.errors.</span></span><span class="sig-name descname"><span class="pre">CoinPayementsError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.errors.CoinPayementsError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="asyncoinpayments.errors.CoinPaymentsInputError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncoinpayments.errors.</span></span><span class="sig-name descname"><span class="pre">CoinPaymentsInputError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.errors.CoinPaymentsInputError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#asyncoinpayments.errors.CoinPayementsError" title="asyncoinpayments.errors.CoinPayementsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoinPayementsError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="asyncoinpayments.errors.FormatError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncoinpayments.errors.</span></span><span class="sig-name descname"><span class="pre">FormatError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.errors.FormatError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#asyncoinpayments.errors.CoinPayementsError" title="asyncoinpayments.errors.CoinPayementsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoinPayementsError</span></code></a></p>
+</dd></dl>
+
+</section>
+<section id="module-asyncoinpayments.utils">
+<span id="asyncoinpayments-utils-module"></span><h2>asyncoinpayments.utils module<a class="headerlink" href="#module-asyncoinpayments.utils" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncoinpayments.utils.ApiResponseJson">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncoinpayments.utils.</span></span><span class="sig-name descname"><span class="pre">ApiResponseJson</span></span><a class="headerlink" href="#asyncoinpayments.utils.ApiResponseJson" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asyncoinpayments.utils.ApiResponseJson.error">
+<span class="sig-name descname"><span class="pre">error</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#asyncoinpayments.utils.ApiResponseJson.error" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asyncoinpayments.utils.ApiResponseJson.result">
+<span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#asyncoinpayments.utils.ApiResponseJson.result" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncoinpayments.utils.JsonResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncoinpayments.utils.</span></span><span class="sig-name descname"><span class="pre">JsonResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#asyncoinpayments.utils.ApiResponseJson" title="asyncoinpayments.utils.ApiResponseJson"><span class="pre">ApiResponseJson</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncoinpayments.utils.JsonResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncoinpayments.utils.JsonResponse.raise_for_errors">
+<span class="sig-name descname"><span class="pre">raise_for_errors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#asyncoinpayments.utils.JsonResponse.raise_for_errors" title="Link to this definition"></a></dt>
+<dd><p>If an error accours it will be raised as CoinPaymentsError</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncoinpayments.utils.ResponseFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncoinpayments.utils.</span></span><span class="sig-name descname"><span class="pre">ResponseFormat</span></span><a class="headerlink" href="#asyncoinpayments.utils.ResponseFormat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asyncoinpayments.utils.ResponseFormat.JSON">
+<span class="sig-name descname"><span class="pre">JSON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'json'</span></em><a class="headerlink" href="#asyncoinpayments.utils.ResponseFormat.JSON" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asyncoinpayments.utils.ResponseFormat.XML">
+<span class="sig-name descname"><span class="pre">XML</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'xml'</span></em><a class="headerlink" href="#asyncoinpayments.utils.ResponseFormat.XML" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-asyncoinpayments">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-asyncoinpayments" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Flavio Lugli.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
