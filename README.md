@@ -1,4 +1,5 @@
 # AsynCoinpayments  
+![Static Badge](https://img.shields.io/github/license/flalugli/asyncoinpayments)  
 
 An async/await compatible python wrapper for the CoinPayments API  
 
